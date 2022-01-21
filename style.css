@@ -1,0 +1,54 @@
+*{
+    cursor: none;
+}
+
+body{
+    background-color: #121212;
+}
+
+.cursor{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* border: 1.5px solid white;*/
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+}
+
+.cursor::after, .cursor::before{
+    content:"" ;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 50px;
+
+}
+
+.cursor::before{
+    background-color: white;
+    transform: translate(-50%, -50%) scale(3);
+}
+
+.cursor.click::before{
+    animation: click 1s ease-in-out forwards;
+}
+
+@keyframes click{
+    0%{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(5);
+    }
+}
+
